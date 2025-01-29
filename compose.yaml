@@ -1,0 +1,18 @@
+services:
+  auth:
+    build: .
+    env_file:
+      - .env
+    container_name: tbot
+    ports:
+      - 8000-8000
+    command: "python run.py"
+  postgres:
+    image: postgres:15.2
+    container_name: postgres
+    environment:
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_DB=postgres
+      - POSTGRES_USER=postgres
+    ports:
+      - 5433:5432
