@@ -24,7 +24,7 @@ async def admin_notice(message: types.Message):
         print(users)
         for user_id in users:
             try:
-                dp.message(chat_id=int(user_id), text='уведомление')
+                await bot.send_message(chat_id=int(user_id), text='уведомление')
                 await message.reply('Уведомления отправлены')
             except Exception as e:
                 print(f"Ошибка при отправке сообщения пользователю {user_id}: {e}")
